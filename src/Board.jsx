@@ -1,10 +1,10 @@
 import React from 'react';
 import './index.css';
-import Square from './Square.jsx';
+import Row from './Row.jsx';
 
 class Board extends React.Component {
-  renderSquare(i) {
-    return <Square value={i}/>;
+  renderRow(triple) {
+    return <Row triple={triple}/>;
   }
 
   render() {
@@ -15,21 +15,9 @@ class Board extends React.Component {
         <div className="status">
           {status}
         </div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
+        {this.renderRow([1, 2, 3])}
+        {this.renderRow([4, 5, 6])}
+        {this.renderRow([7, 8, 9])}
       </div>
     );
   }
