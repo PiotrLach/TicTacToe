@@ -5,14 +5,10 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={() => this.onClick()}>
+      <button className="square" onClick={this.props.couple.handler}>
         {this.props.couple.value}
       </button>
     );
-  }
-
-  onClick() {
-    this.props.couple.handler();
   }
 }
 
