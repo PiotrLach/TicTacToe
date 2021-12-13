@@ -3,9 +3,7 @@ import './index.css';
 import Square from './Square.jsx';
 
 class Row extends React.Component {
-    renderSquare(i) {
-        return <Square value={i} />;
-    }
+
     render() {
         var triple = this.props.triple;
         return (
@@ -16,5 +14,10 @@ class Row extends React.Component {
             </div>
         );
     }
+
+    renderSquare(couple) {
+        return <Square couple={couple} />;
+    }
 }
+
 export default Row;
