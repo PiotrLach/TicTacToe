@@ -1,7 +1,8 @@
 import React from 'react';
+import Couple from './Couple';
 import './index.css';
 
-class Square extends React.Component {
+class Square extends React.Component<{couple : Couple}, {}> {
 
   render() {
     return (

@@ -1,10 +1,12 @@
 import React from 'react';
 import './index.css';
-import Row from './Row.jsx';
+import Row from './Row';
+import Couple from './Couple';
+import Triple from './Triple';
 
-class Board extends React.Component {
+class Board extends React.Component<{}, { squares: Array<string>, xIsNext: boolean }> {
 
-  constructor(props) {
+  constructor(props : {}) {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
@@ -27,19 +29,19 @@ class Board extends React.Component {
     );
   }
 
-  renderRow(triple) {
+  renderRow(triple: Triple) {
     return <Row triple={triple} />;
   }
 
-  getTriple(a, b, c) {
-    return [this.getCouple(a), this.getCouple(b), this.getCouple(c)];
+  getTriple(a: number, b: number, c: number): Triple {
+    return { first: this.getCouple(a), second: this.getCouple(b), third: this.getCouple(c) };
   }
 
-  getCouple(i) {
+  getCouple(i: number): Couple {
     return { value: this.state.squares[i], handler: () => this.handleClick(i) };
   }
 
-  handleClick(i) {
+  handleClick(i: number): void {
     const squares = this.state.squares.slice();
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
