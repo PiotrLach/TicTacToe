@@ -29,19 +29,19 @@ class Board extends React.Component<{}, { squares: Array<string>, xIsNext: boole
     );
   }
 
-  renderRow(triple: Triple) {
+  private renderRow(triple: Triple) {
     return <Row triple={triple} />;
   }
 
-  getTriple(a: number, b: number, c: number): Triple {
+  private getTriple(a: number, b: number, c: number): Triple {
     return { first: this.getCouple(a), second: this.getCouple(b), third: this.getCouple(c) };
   }
 
-  getCouple(i: number): Couple {
+  private getCouple(i: number): Couple {
     return { value: this.state.squares[i], handler: () => this.handleClick(i) };
   }
 
-  handleClick(i: number): void {
+  private handleClick(i: number): void {
     const squares = this.state.squares.slice();
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
