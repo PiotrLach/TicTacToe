@@ -9,7 +9,7 @@ export default class Row extends React.Component<{triple : Triple}, {}> {
     render() {
         var triple = this.props.triple;
         return (
-            <div className="board-row">
+            <div className="row">
                 {this.renderSquare(triple.first)}
                 {this.renderSquare(triple.second)}
                 {this.renderSquare(triple.third)}

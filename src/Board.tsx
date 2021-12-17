@@ -3,8 +3,9 @@ import './index.css';
 import Row from './Row';
 import Couple from './Couple';
 import Triple from './Triple';
+import BoardState from './BoardState';
 
-class Board extends React.Component<{}, { squares: Array<string>, xIsNext: boolean }> {
+class Board extends React.Component<{}, BoardState> {
 
   constructor(props : {}) {
     super(props);
