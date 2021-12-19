@@ -16,13 +16,8 @@ class Board extends React.Component<{}, BoardState> {
   }
 
   render() {
-    const status = 'Next player: X';
-
     return (
-      <div>
-        <div className="status">
-          {status}
-        </div>
+      <div className="board">
         {this.renderRow(this.getTriple(0, 1, 2))}
         {this.renderRow(this.getTriple(3, 4, 5))}
         {this.renderRow(this.getTriple(6, 7, 8))}
