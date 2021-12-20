@@ -7,7 +7,7 @@ import BoardState from './BoardState';
 
 class Board extends React.Component<{}, BoardState> {
 
-  constructor(props : {}) {
+  constructor(props: {}) {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
@@ -30,20 +30,28 @@ class Board extends React.Component<{}, BoardState> {
   }
 
   private getTriple(a: number, b: number, c: number): Triple {
-    return { first: this.getCouple(a), second: this.getCouple(b), third: this.getCouple(c) };
+    return {
+      first: this.getCouple(a),
+      second: this.getCouple(b),
+      third: this.getCouple(c)
+    };
   }
 
-  private getCouple(i: number): Couple {
-    return { value: this.state.squares[i], handler: () => this.handleClick(i) };
+  private getCouple(index: number): Couple {
+    return {
+      value: this.state.squares[index],
+      handler: () => this.handleClick(index)
+    };
   }
 
-  private handleClick(i: number): void {
+  private handleClick(index: number): void {
     const squares = this.state.squares.slice();
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState({
+    squares[index] = this.state.xIsNext ? 'X' : 'O';
+    const newState = {
       squares: squares,
       xIsNext: !this.state.xIsNext
-    });
+    };
+    this.setState(newState);
   }
 }
 

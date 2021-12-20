@@ -11,7 +11,6 @@ body {
 .board {
   display: grid;  
   grid-template-rows: repeat(3, 1fr);
-  height: 100vh;
 }
 
 .square {
@@ -23,8 +22,18 @@ body {
   text-align: center;
 }
   
+@media (orientation: landscape) {
+  .game {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 100vh;
+  }
+}
 
-.game {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+@media (orientation: portrait) {
+  .game {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    height: 100vh;
+  }
 }
