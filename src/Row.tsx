@@ -7,7 +7,7 @@ import Couple from './Couple';
 export default class Row extends React.Component<{triple : Triple}, {}> {
 
     render() {
-        var triple = this.props.triple;
+        const triple = this.props.triple;
         return (
             <div className="row">
                 {this.renderSquare(triple.first)}
