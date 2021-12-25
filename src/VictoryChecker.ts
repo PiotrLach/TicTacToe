@@ -42,16 +42,19 @@ export default class VictoryChecker {
 
         const excerpt = [];
 
-        let i = 0, j = 0;
+        let i = x1, j = y1;
 
-        while (i != this.DIMENS || j != this.DIMENS) {
+        const vDiff = x1 < x2 ? 1 : -1;
+        const hDiff = y1 < y2 ? 1 : -1;
+
+        while (i != x2 + vDiff || j != y2 + hDiff) {
 
             const index = i * this.DIMENS + j;
             const symbol = this.squares[index];
             excerpt.push(symbol);
 
-            i++;
-            j++;
+            i += vDiff;
+            j += hDiff;
         }
 
         return this.isExcerptUniform(excerpt);
