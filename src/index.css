@@ -3,7 +3,7 @@ body {
   margin:0;  
 }
 
-.game { 
+.root { 
   display: flex;
   height: 100vh;
 }
