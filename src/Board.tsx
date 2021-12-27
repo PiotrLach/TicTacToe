@@ -4,14 +4,24 @@ import Row from './Row';
 import Couple from './Couple';
 import Triple from './Triple';
 import BoardState from './BoardState';
+import VictoryChecker from './VictoryChecker';
 
 class Board extends React.Component<{}, BoardState> {
 
+  private readonly squares: Array<string>;
+  private xIsNext: boolean;
+  private readonly victoryChecker: VictoryChecker;
+
   constructor(props: {}) {
     super(props);
+
+    this.squares = Array(9).fill("");
+    this.xIsNext = true;
+    this.victoryChecker = new VictoryChecker(this.squares);
+
     this.state = {
-      squares: Array(9).fill(null),
-      xIsNext: true
+      squares: this.squares,
+      xIsNext: this.xIsNext
     };
   }
 
@@ -45,13 +55,32 @@ class Board extends React.Component<{}, BoardState> {
   }
 
   private handleClick(index: number): void {
-    const squares = this.state.squares.slice();
-    squares[index] = this.state.xIsNext ? 'X' : 'O';
-    const newState = {
-      squares: squares,
-      xIsNext: !this.state.xIsNext
-    };
+
+    const isGameOver = this.victoryChecker.isGameOver();
+    const currentCharacter = this.xIsNext ? 'O' : 'X';
+
+    if (isGameOver) {
+      alert("Game over! " + currentCharacter + "s won!")
+      return;
+    }
+
+    if (this.squares[index]) {
+      return;
+    }
+    
+    const nextCharacter = this.xIsNext ? 'X' : 'O';
+    this.squares[index] = nextCharacter;
+    this.xIsNext = !this.xIsNext;
+    
+    const newState = this.getNewState();
     this.setState(newState);
+  }
+
+  private getNewState(): BoardState {
+    return {
+      squares: this.squares,
+      xIsNext: this.xIsNext
+    };
   }
 }
 

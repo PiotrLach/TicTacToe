@@ -47,7 +47,7 @@ export default class VictoryChecker {
         const vDiff = x1 < x2 ? 1 : -1;
         const hDiff = y1 < y2 ? 1 : -1;
 
-        while (i != x2 + vDiff || j != y2 + hDiff) {
+        while (i !== x2 + vDiff || j !== y2 + hDiff) {
 
             const index = i * this.DIMENS + j;
             const symbol = this.squares[index];
@@ -88,12 +88,12 @@ export default class VictoryChecker {
 
         const first = excerpt[0];
 
-        if (first != "O" && first != "X") {
+        if (first !== "O" && first !== "X") {
             return false;
         }
 
         for (const next of excerpt) {
-            if (next != first) {
+            if (next !== first) {
                 return false;
             }
         }
