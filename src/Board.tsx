@@ -60,7 +60,7 @@ class Board extends React.Component<{}, BoardState> {
     const currentCharacter = this.xIsNext ? 'O' : 'X';
 
     if (isGameOver) {
-      alert("Game over! " + currentCharacter + "s won!")
+      alert(`Game over! ${currentCharacter}s won!`)
       return;
     }
 

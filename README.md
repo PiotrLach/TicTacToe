@@ -8,6 +8,10 @@ The project is an implementation of a Tic-Tac-Toe game, made with the help of Re
 
 In the project directory, you can run:
 
+### `npm install`
+
+Downloads dependencies required for the project. They're stored in `node_modules` folder.
+
 ### `npm start`
 
 Runs the app in the development mode.
@@ -19,6 +23,7 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode. The project includes one test suite for the `VictoryChecker` class.
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder. It bundles React in production mode and optimizes the build for the best performance.
