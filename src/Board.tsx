@@ -1,12 +1,12 @@
 import React from 'react';
 import './index.css';
-import Row from './Row';
-import Couple from './Couple';
-import Triple from './Triple';
-import BoardState from './BoardState';
-import VictoryChecker from './VictoryChecker';
+import { Row } from './Row';
+import { Couple } from './Couple';
+import { Triple } from './Triple';
+import { BoardState } from './BoardState';
+import { VictoryChecker } from './VictoryChecker';
 
-class Board extends React.Component<{}, BoardState> {
+export class Board extends React.Component<{}, BoardState> {
 
   private readonly squares = Array(9).fill("");
   private xIsNext = true;
@@ -79,5 +79,3 @@ class Board extends React.Component<{}, BoardState> {
     };
   }
 }
-
-export default Board;

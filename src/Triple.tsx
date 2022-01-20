@@ -1,9 +1,7 @@
-import Couple from './Couple';
+import { Couple } from './Couple';
 
-interface Triple {
+export interface Triple {
     first : Couple,
     second : Couple,
     third : Couple
 }
-
-export default Triple;

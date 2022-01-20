@@ -1,4 +1,4 @@
-import VictoryChecker from "../VictoryChecker";
+import { VictoryChecker } from "../VictoryChecker";
 
 const testCases = [
     ['X', '', '',

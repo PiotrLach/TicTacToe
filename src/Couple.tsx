@@ -1,4 +1,4 @@
-export default interface Couple {
+export interface Couple {
     value: String,
     handler(): void;
 }

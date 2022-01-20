@@ -1,10 +1,10 @@
 import React from 'react';
 import './index.css';
-import Square from './Square';
-import Triple from './Triple';
-import Couple from './Couple';
+import { Square }  from './Square';
+import { Triple } from './Triple';
+import { Couple } from './Couple';
 
-class Row extends React.Component<{triple : Triple}, {}> {
+export class Row extends React.Component<{triple : Triple}, {}> {
 
     render() {
         const triple = this.props.triple;
@@ -23,5 +23,3 @@ class Row extends React.Component<{triple : Triple}, {}> {
         return <Square value={value} handler={handler}/>;
     }
 }
-
-export default Row;

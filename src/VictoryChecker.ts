@@ -1,6 +1,6 @@
-type Coords = [number, number, number, number];
+import { Coords } from "./Coords";
 
-export default class VictoryChecker {
+export class VictoryChecker {
 
     private readonly squares;
     private readonly DIMENS = 3;

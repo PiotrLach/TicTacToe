@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Board from './Board';
+import { Board } from './Board';
 
 const root = document.getElementById('root');
 

@@ -1,4 +1,4 @@
-export default interface BoardState {
+export interface BoardState {
   squares: Array<string>;
   xIsNext: boolean;
 }
