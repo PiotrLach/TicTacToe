@@ -4,7 +4,7 @@ import Square from './Square';
 import Triple from './Triple';
 import Couple from './Couple';
 
-export default class Row extends React.Component<{triple : Triple}, {}> {
+class Row extends React.Component<{triple : Triple}, {}> {
 
     render() {
         const triple = this.props.triple;
@@ -17,7 +17,11 @@ export default class Row extends React.Component<{triple : Triple}, {}> {
         );
     }
 
-    renderSquare(couple : Couple) {
-        return <Square couple={couple} />;
+    private renderSquare(couple: Couple) {
+        const value = couple.value;
+        const handler = couple.handler;
+        return <Square value={value} handler={handler}/>;
     }
 }
+
+export default Row;

@@ -8,16 +8,12 @@ import VictoryChecker from './VictoryChecker';
 
 class Board extends React.Component<{}, BoardState> {
 
-  private readonly squares: Array<string>;
-  private xIsNext: boolean;
-  private readonly victoryChecker: VictoryChecker;
+  private readonly squares = Array(9).fill("");
+  private xIsNext = true;
+  private readonly victoryChecker = new VictoryChecker(this.squares);
 
   constructor(props: {}) {
     super(props);
-
-    this.squares = Array(9).fill("");
-    this.xIsNext = true;
-    this.victoryChecker = new VictoryChecker(this.squares);
 
     this.state = {
       squares: this.squares,
