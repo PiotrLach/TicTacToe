@@ -1,10 +1,10 @@
 import React from 'react';
 import './index.css';
 import { Row } from './Row';
-import { Couple } from './Couple';
-import { Triple } from './Triple';
-import { BoardState } from './BoardState';
-import { VictoryChecker } from './VictoryChecker';
+import { Couple } from '../types/Couple';
+import { Triple } from '../types/Triple';
+import { BoardState } from '../types/BoardState';
+import { VictoryChecker } from '../VictoryChecker';
 
 export class Board extends React.Component<{}, BoardState> {
 

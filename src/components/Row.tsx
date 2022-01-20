@@ -1,8 +1,8 @@
 import React from 'react';
 import './index.css';
 import { Square }  from './Square';
-import { Triple } from './Triple';
-import { Couple } from './Couple';
+import { Triple } from '../types/Triple';
+import { Couple } from '../types/Couple';
 
 export class Row extends React.Component<{triple : Triple}, {}> {
 

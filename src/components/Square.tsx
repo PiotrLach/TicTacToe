@@ -1,4 +1,4 @@
-import { Couple } from './Couple';
+import { Couple } from '../types/Couple';
 import './index.css';
 
 export const Square = ({value, handler}: Couple) =>
