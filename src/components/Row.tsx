@@ -18,8 +18,7 @@ export class Row extends React.Component<{triple : Triple}, {}> {
     }
 
     private renderSquare(couple: Couple) {
-        const value = couple.value;
-        const handler = couple.handler;
+        const {value, handler} = couple;
         return <Square value={value} handler={handler}/>;
     }
 }

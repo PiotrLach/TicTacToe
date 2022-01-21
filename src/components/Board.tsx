@@ -9,7 +9,7 @@ import { VictoryChecker } from '../VictoryChecker';
 export class Board extends React.Component<{}, BoardState> {
 
   private readonly squares = Array(9).fill("");
-  private xIsNext = true;
+  private isXnext = true;
   private readonly victoryChecker = new VictoryChecker(this.squares);
 
   constructor(props: {}) {
@@ -17,7 +17,7 @@ export class Board extends React.Component<{}, BoardState> {
 
     this.state = {
       squares: this.squares,
-      xIsNext: this.xIsNext
+      isXnext: this.isXnext
     };
   }
 
@@ -53,7 +53,7 @@ export class Board extends React.Component<{}, BoardState> {
   private handleClick(index: number): void {
 
     const isGameOver = this.victoryChecker.isGameOver();
-    const currentCharacter = this.xIsNext ? 'O' : 'X';
+    const currentCharacter = this.isXnext ? 'O' : 'X';
 
     if (isGameOver) {
       alert(`Game over! ${currentCharacter}s won!`)
@@ -64,9 +64,9 @@ export class Board extends React.Component<{}, BoardState> {
       return;
     }
     
-    const nextCharacter = this.xIsNext ? 'X' : 'O';
+    const nextCharacter = this.isXnext ? 'X' : 'O';
     this.squares[index] = nextCharacter;
-    this.xIsNext = !this.xIsNext;
+    this.isXnext = !this.isXnext;
     
     const newState = this.getNewState();
     this.setState(newState);
@@ -75,7 +75,7 @@ export class Board extends React.Component<{}, BoardState> {
   private getNewState(): BoardState {
     return {
       squares: this.squares,
-      xIsNext: this.xIsNext
+      isXnext: this.isXnext
     };
   }
 }
