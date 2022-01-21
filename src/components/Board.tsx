@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import '../index.css';
 import { Row } from './Row';
 import { Couple } from '../types/Couple';
 import { Triple } from '../types/Triple';
