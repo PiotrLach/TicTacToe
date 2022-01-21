@@ -32,7 +32,8 @@ export class Board extends React.Component<{}, BoardState> {
   }
 
   private renderRow(triple: Triple) {
-    return <Row triple={triple} />;
+    const {first, second, third} = triple;
+    return <Row first={first} second={second} third={third} />;
   }
 
   private getTriple(a: number, b: number, c: number): Triple {
