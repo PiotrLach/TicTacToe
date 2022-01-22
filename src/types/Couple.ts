@@ -1,4 +1,4 @@
 export interface Couple {
-    value: String,
-    handler(): void;
+    value: string,
+    handler(): string;
 }

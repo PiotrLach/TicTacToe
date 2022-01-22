@@ -1,82 +1,53 @@
-import React from 'react';
 import '../index.css';
 import { Row } from './Row';
-import { Couple } from '../types/Couple';
 import { Triple } from '../types/Triple';
-import { BoardState } from '../types/BoardState';
 import { VictoryChecker } from '../VictoryChecker';
 
-export class Board extends React.Component<{}, BoardState> {
+const squares = Array(9).fill("");
+const victoryChecker = new VictoryChecker(squares);
+let isXnext = true;
 
-  private readonly squares = Array(9).fill("");
-  private isXnext = true;
-  private readonly victoryChecker = new VictoryChecker(this.squares);
+export const Board = () =>
+  <div className="board">
+    {renderRow(getTriple(0, 1, 2))}
+    {renderRow(getTriple(3, 4, 5))}
+    {renderRow(getTriple(6, 7, 8))}
+  </div>;
 
-  constructor(props: {}) {
-    super(props);
+const renderRow = ({ first, second, third }: Triple) =>
+  <Row first={first} second={second} third={third} />;
 
-    this.state = {
-      squares: this.squares,
-      isXnext: this.isXnext
-    };
+const getTriple = (a: number, b: number, c: number) => ({
+  first: getCouple(a), second: getCouple(b), third: getCouple(c)
+});
+
+const getCouple = (index: number) => ({
+  value: squares[index],
+  handler: () => handleClick(index)
+});
+
+const handleClick = (index: number): string => {
+
+  const isGameOver = victoryChecker.isGameOver();
+  const currentCharacter = isXnext ? 'O' : 'X';
+
+  if (isGameOver) {
+    alert(`Game over! ${currentCharacter}s won!`)
+    return squares[index];
   }
 
-  render() {
-    return (
-      <div className="board">
-        {this.renderRow(this.getTriple(0, 1, 2))}
-        {this.renderRow(this.getTriple(3, 4, 5))}
-        {this.renderRow(this.getTriple(6, 7, 8))}
-      </div>
-    );
+  if (squares[index]) {
+    return squares[index];
   }
 
-  private renderRow(triple: Triple) {
-    const {first, second, third} = triple;
-    return <Row first={first} second={second} third={third} />;
-  }
+  return getNextCharacter(index);
+}
 
-  private getTriple(a: number, b: number, c: number): Triple {
-    return {
-      first: this.getCouple(a),
-      second: this.getCouple(b),
-      third: this.getCouple(c)
-    };
-  }
+const getNextCharacter = (index: number) => {
 
-  private getCouple(index: number): Couple {
-    return {
-      value: this.state.squares[index],
-      handler: () => this.handleClick(index)
-    };
-  }
+  const nextCharacter = isXnext ? 'X' : 'O';
+  squares[index] = nextCharacter;
+  isXnext = !isXnext;
 
-  private handleClick(index: number): void {
-
-    const isGameOver = this.victoryChecker.isGameOver();
-    const currentCharacter = this.isXnext ? 'O' : 'X';
-
-    if (isGameOver) {
-      alert(`Game over! ${currentCharacter}s won!`)
-      return;
-    }
-
-    if (this.squares[index]) {
-      return;
-    }
-    
-    const nextCharacter = this.isXnext ? 'X' : 'O';
-    this.squares[index] = nextCharacter;
-    this.isXnext = !this.isXnext;
-    
-    const newState = this.getNewState();
-    this.setState(newState);
-  }
-
-  private getNewState(): BoardState {
-    return {
-      squares: this.squares,
-      isXnext: this.isXnext
-    };
-  }
+  return nextCharacter;
 }
