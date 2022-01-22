@@ -4,7 +4,7 @@ import { Triple } from 'types/Triple';
 import { VictoryChecker } from 'VictoryChecker';
 
 const squares = Array(9).fill("");
-const victoryChecker = new VictoryChecker(squares);
+const isVictory = VictoryChecker(squares);
 let isXnext = true;
 
 export const Board = () =>
@@ -28,7 +28,7 @@ const getCouple = (index: number) => ({
 
 const handleClick = (index: number): string => {
 
-  const isGameOver = victoryChecker.isGameOver();
+  const isGameOver = isVictory();
   const currentCharacter = isXnext ? 'O' : 'X';
 
   if (isGameOver) {

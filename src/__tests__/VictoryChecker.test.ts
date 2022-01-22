@@ -20,9 +20,9 @@ const testCases = [
 
 for (const testCase of testCases) {
     
-    const victoryChecker = new VictoryChecker(testCase);
+    const isVictory = VictoryChecker(testCase);
     const checkIsGameWon = () => {
-        expect(victoryChecker.isGameOver()).toEqual(true);
+        expect(isVictory()).toEqual(true);
     };
     
     test('Checks victory', checkIsGameWon);
