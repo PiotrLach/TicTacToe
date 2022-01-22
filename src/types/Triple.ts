@@ -1,4 +1,4 @@
-import { Couple } from './Couple';
+import { Couple } from 'types/Couple';
 
 export interface Triple {
     first: Couple,

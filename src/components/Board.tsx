@@ -1,7 +1,7 @@
-import '../index.css';
-import { Row } from './Row';
-import { Triple } from '../types/Triple';
-import { VictoryChecker } from '../VictoryChecker';
+import 'index.css';
+import { Row } from 'components/Row';
+import { Triple } from 'types/Triple';
+import { VictoryChecker } from 'VictoryChecker';
 
 const squares = Array(9).fill("");
 const victoryChecker = new VictoryChecker(squares);

@@ -1,5 +1,5 @@
-import { Couple } from '../types/Couple';
-import '../index.css';
+import { Couple } from 'types/Couple';
+import 'index.css';
 import { useState } from 'react';
 
 export const Square = ({value, handler}: Couple) => {
