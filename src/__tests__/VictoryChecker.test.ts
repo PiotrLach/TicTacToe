@@ -1,4 +1,4 @@
-import { VictoryChecker } from "../VictoryChecker";
+import { VictoryChecker } from "VictoryChecker";
 
 const testCases = [
     ['X', '', '',
@@ -19,12 +19,12 @@ const testCases = [
 ];
 
 for (const testCase of testCases) {
-    
-    const isVictory = VictoryChecker(testCase);
-    const checkIsGameWon = () => {
+
+    const checkIsGameOver = () => {
+        const isVictory = VictoryChecker(testCase);
         expect(isVictory()).toEqual(true);
-    };
+    }
     
-    test('Checks victory', checkIsGameWon);
+    test('Checks victory', checkIsGameOver);
 }
 

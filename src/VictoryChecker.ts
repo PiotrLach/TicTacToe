@@ -1,4 +1,3 @@
-import { Console } from "console";
 import { Coords } from "types/Coords";
 
 let squares: Array<string>;
@@ -11,7 +10,7 @@ export const VictoryChecker = (input: Array<string>) => {
     return () => isGameOver();
 }
 
-function isGameOver(): boolean {        
+function isGameOver(): boolean {
     return isAnyRowUniform() || isAnyColUniform() || isAnyDiagonalUniform();
 }
 
